@@ -1,0 +1,100 @@
+import { District, FocusZone } from '../types';
+
+export const districts: District[] = [
+  {
+    id: 'cs',
+    name: 'Computer Science & IT',
+    emoji: '💻',
+    description: 'Programming, algorithms, and digital crafts',
+    color: '#3D84A8',
+    bgGradient: 'from-turquoise/20 to-night',
+  },
+  {
+    id: 'engineering',
+    name: 'Engineering',
+    emoji: '⚙️',
+    description: 'Design, build, and innovate',
+    color: '#7B68EE',
+    bgGradient: 'from-purple-500/20 to-night',
+  },
+  {
+    id: 'medicine',
+    name: 'Medicine & Health',
+    emoji: '🏥',
+    description: 'Healing arts and medical knowledge',
+    color: '#E07A5F',
+    bgGradient: 'from-terracotta/20 to-night',
+  },
+  {
+    id: 'business',
+    name: 'Business & Economics',
+    emoji: '💼',
+    description: 'Commerce, trade, and finance',
+    color: '#F2CC8F',
+    bgGradient: 'from-gold/20 to-night',
+  },
+  {
+    id: 'law',
+    name: 'Law & Political Science',
+    emoji: '⚖️',
+    description: 'Justice, governance, and policy',
+    color: '#C8B6E2',
+    bgGradient: 'from-violet-300/20 to-night',
+  },
+  {
+    id: 'humanities',
+    name: 'Humanities & Languages',
+    emoji: '📚',
+    description: 'Literature, history, and culture',
+    color: '#E6C229',
+    bgGradient: 'from-yellow-500/20 to-night',
+  },
+  {
+    id: 'arts',
+    name: 'Arts & Design',
+    emoji: '🎨',
+    description: 'Creative expression and visual arts',
+    color: '#FF6B6B',
+    bgGradient: 'from-rose-500/20 to-night',
+  },
+  {
+    id: 'education',
+    name: 'Education',
+    emoji: '👨‍🏫',
+    description: 'Teaching and pedagogical mastery',
+    color: '#4ECDC4',
+    bgGradient: 'from-teal-400/20 to-night',
+  },
+  {
+    id: 'math',
+    name: 'Mathematics & Statistics',
+    emoji: '📊',
+    description: 'Numbers, logic, and data science',
+    color: '#45B7D1',
+    bgGradient: 'from-sky-400/20 to-night',
+  },
+];
+
+export const focusZones: FocusZone[] = [
+  {
+    id: 'library',
+    name: 'Library Zone',
+    emoji: '🏛️',
+    description: 'Silent study with full concentration',
+    bgGradient: 'from-turquoise/10 to-night-light',
+  },
+  {
+    id: 'cafe',
+    name: 'Study Café',
+    emoji: '☕',
+    description: 'Ambient noise for relaxed learning',
+    bgGradient: 'from-gold/10 to-night-light',
+  },
+  {
+    id: 'night',
+    name: 'Night Focus',
+    emoji: '🌙',
+    description: 'Deep focus mode for exam prep',
+    bgGradient: 'from-violet-500/10 to-night-light',
+  },
+];

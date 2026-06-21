@@ -1,0 +1,48 @@
+import { Quest } from '../types';
+
+export const quests: Quest[] = [
+  {
+    id: 'quest-1',
+    title: 'Complete 5 Sessions',
+    description: 'Attend 5 learning sessions this week',
+    reward: 100,
+    xpReward: 250,
+    progress: 3,
+    total: 5,
+    emoji: '📚',
+    deadline: '2 days left',
+  },
+  {
+    id: 'quest-2',
+    title: 'Knowledge Exchange',
+    description: 'Trade knowledge with 3 different merchants',
+    reward: 150,
+    xpReward: 300,
+    progress: 2,
+    total: 3,
+    emoji: '🔄',
+    deadline: '5 days left',
+  },
+  {
+    id: 'quest-3',
+    title: 'Study Streak Champion',
+    description: 'Maintain a 7-day study streak',
+    reward: 200,
+    xpReward: 500,
+    progress: 5,
+    total: 7,
+    emoji: '🔥',
+    deadline: '2 days left',
+  },
+  {
+    id: 'quest-4',
+    title: 'District Explorer',
+    description: 'Visit all 9 academic districts',
+    reward: 250,
+    xpReward: 600,
+    progress: 6,
+    total: 9,
+    emoji: '🗺️',
+    deadline: 'Ongoing',
+  },
+];
