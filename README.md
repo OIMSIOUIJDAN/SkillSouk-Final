@@ -15,7 +15,7 @@
 - [Advanced Gamification](#-advanced-gamification)
 - [AI Integration](#-ai-integration)
 - [Tech Stack](#-tech-stack)
-- [Participant Info](#-participant-info)
+- [Participant Info](#-My-info)
 
 ---
 
