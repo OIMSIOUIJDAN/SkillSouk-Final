@@ -93,7 +93,7 @@ A competitive leaderboard that ranks all users like a real classroom based stric
 
 ---
 
-## 👤 Participant Info
+## 👤 My Info
 
 | Field | Details |
 | :--- | :--- |
