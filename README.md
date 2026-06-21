@@ -1,8 +1,6 @@
 # 🏺 SkillSouk - Where Knowledge is Traded Like Gold
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://skill-souk-final.vercel.app/)
-[![React](https://img.shields.io/badge/React-18-blue)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-5.0-purple)](https://vitejs.dev/)
 
 > A gamified knowledge marketplace inspired by traditional Moroccan Souks, transforming studying into an immersive, AI-powered RPG experience.
 
