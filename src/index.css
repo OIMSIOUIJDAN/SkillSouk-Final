@@ -1,0 +1,489 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --terracotta: #E07A5F;
+  --turquoise: #3D84A8;
+  --gold: #F2CC8F;
+  --cream: #F4F1DE;
+  --night: #1a1a2e;
+  --night-light: #2a2a4e;
+  --night-lighter: #3a3a5e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--night);
+  color: var(--cream);
+  overflow-x: hidden;
+}
+
+/* ─── Zellige Photo Background ─── */
+.zellige-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url('/zellige-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Slow drift for living-wallpaper feel */
+  animation: zelligeDrift 30s ease-in-out infinite alternate;
+}
+
+/* Multi-layer dark overlay: deepens corners, clears centre, adds night tint */
+.zellige-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 50%,
+      rgba(26, 26, 46, 0.78) 0%,
+      rgba(26, 26, 46, 0.90) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(26, 26, 46, 0.50) 0%,
+      rgba(26, 26, 46, 0.65) 60%,
+      rgba(26, 26, 46, 0.85) 100%
+    );
+  animation: overlayBreath 8s ease-in-out infinite;
+}
+
+@keyframes zelligeDrift {
+  0%   { background-position: center center; }
+  50%  { background-position: 52% 48%; }
+  100% { background-position: 48% 52%; }
+}
+
+@keyframes overlayBreath {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.94; }
+}
+
+/* ─── Zellige accent strip — thin decorative band using the photo ─── */
+.zellige-strip {
+  position: relative;
+  background-image: url('/zellige-bg.jpg');
+  background-size: cover;
+  background-position: center 35%;
+  overflow: hidden;
+}
+.zellige-strip::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 26, 46, 0.10) 0%,
+    rgba(26, 26, 46, 0.45) 100%
+  );
+}
+
+/* Moroccan Arch Shape */
+.moroccan-arch {
+  border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+  position: relative;
+}
+
+.moroccan-arch::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 30%;
+  border-radius: 50% 50% 0 0;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-dark {
+  background: rgba(26, 26, 46, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gold Border Glow */
+.gold-border {
+  border: 1px solid rgba(242, 204, 143, 0.3);
+  box-shadow:
+    0 0 8px rgba(242, 204, 143, 0.1),
+    inset 0 0 8px rgba(242, 204, 143, 0.05);
+}
+
+/* Text Glow */
+.gold-glow {
+  text-shadow:
+    0 0 15px rgba(242, 204, 143, 0.6),
+    0 0 30px rgba(242, 204, 143, 0.3);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--night);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--turquoise);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--terracotta);
+}
+
+/* Additional Animations */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes rain {
+  0% { transform: translateY(-20px); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: translateY(100px); opacity: 0; }
+}
+
+@keyframes steam {
+  0% { transform: translateY(0) scale(1); opacity: 0.3; }
+  50% { opacity: 0.15; }
+  100% { transform: translateY(-10px) scale(1.5); opacity: 0; }
+}
+
+@keyframes coinDrop {
+  0% { transform: translateY(-50px) rotateY(0deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(0) rotateY(360deg); opacity: 1; }
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1) rotate(180deg); opacity: 1; }
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.animate-rain {
+  animation: rain 1s linear infinite;
+}
+
+.animate-steam {
+  animation: steam 2s ease-out infinite;
+}
+
+.animate-coin-drop {
+  animation: coinDrop 0.5s ease-out forwards;
+}
+
+.animate-sparkle {
+  animation: sparkle 0.5s ease-out forwards;
+}
+
+/* Button Press Effect */
+button:active {
+  transform: scale(0.95) !important;
+}
+
+/* Card Flip Animation */
+.card-flip {
+  perspective: 1000px;
+}
+
+.card-flip-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-flip:hover .card-flip-inner {
+  transform: rotateY(180deg);
+}
+
+/* Input Styling */
+input, textarea, select {
+  outline: none;
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(244, 241, 222, 0.4);
+}
+
+select option {
+  background: #1a1a2e;
+  color: #F4F1DE;
+}
+
+/* Line Clamp */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #F2CC8F, #E07A5F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Pulse Ring Effect */
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(242, 204, 143, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(242, 204, 143, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(242, 204, 143, 0); }
+}
+
+.animate-pulse-ring {
+  animation: pulseRing 2s ease-out infinite;
+}
+
+/* Bounce In */
+@keyframes bounceIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.1); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.5s ease-out forwards;
+}
+
+/* Slide In from Bottom */
+@keyframes slideInBottom {
+  0% { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-in-bottom {
+  animation: slideInBottom 0.4s ease-out forwards;
+}
+
+/* Glow Pulse */
+@keyframes glowPulse {
+  0%, 100% { filter: drop-shadow(0 0 5px rgba(242, 204, 143, 0.5)); }
+  50% { filter: drop-shadow(0 0 20px rgba(242, 204, 143, 0.8)); }
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* ── Stat Pop — plays when a gamification value increases ── */
+@keyframes statPop {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.45); }
+  55%  { transform: scale(0.92); }
+  75%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+.animate-stat-pop {
+  animation: statPop 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+}
+
+/* ── Screen enter — used on the content wrapper in App.tsx ── */
+@keyframes screenEnter {
+  0%   { opacity: 0; transform: scale(0.975) translateY(8px); }
+  100% { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+.screen-enter {
+  animation: screenEnter 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.screen-exit {
+  opacity: 0;
+  transform: scale(0.97);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ── Shake (lantern) ── */
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg) translateX(0); }
+  10% { transform: rotate(-10deg) translateX(-5px); }
+  25% { transform: rotate(10deg) translateX(5px); }
+  40% { transform: rotate(-7deg) translateX(-4px); }
+  55% { transform: rotate(7deg) translateX(4px); }
+  70% { transform: rotate(-4deg) translateX(-2px); }
+  85% { transform: rotate(4deg) translateX(2px); }
+}
+.animate-shake { animation: shake 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97); }
+
+/* ── Lantern glow (idle pulse) ── */
+@keyframes lanternGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(242,204,143,0.5));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 22px rgba(242,204,143,0.9)) drop-shadow(0 0 44px rgba(224,122,95,0.4));
+    transform: scale(1.08);
+  }
+}
+.animate-lantern-glow { animation: lanternGlow 2.2s ease-in-out infinite; }
+
+/* ── Companion bounce on coin earn ── */
+@keyframes companionBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  18% { transform: translateY(-22px) scale(1.15); }
+  38% { transform: translateY(0) scale(0.93); }
+  58% { transform: translateY(-10px) scale(1.07); }
+  78% { transform: translateY(0) scale(1); }
+}
+.animate-companion-bounce { animation: companionBounce 0.9s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards; }
+
+/* ── Small coins/sparkles rising from companion ── */
+@keyframes particleUp {
+  0%   { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--tx, 0px), -70px) scale(0.4); opacity: 0; }
+}
+.animate-particle-up { animation: particleUp 0.85s ease-out forwards; }
+
+/* ── Lantern explosion particles ── */
+@keyframes particleBurst {
+  0%   { transform: translate(0, 0) scale(1.2); opacity: 1; }
+  100% { transform: translate(var(--tx, 0px), var(--ty, -90px)) scale(0.1); opacity: 0; }
+}
+.animate-particle-burst { animation: particleBurst 1s cubic-bezier(0.12, 0.9, 0.42, 1) forwards; }
+
+/* ── Duel radar spin sweep ── */
+@keyframes radarSweep {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-radar { animation: radarSweep 1.2s linear infinite; }
+
+/* ── Victory flash ── */
+@keyframes victoryFlash {
+  0%, 100% { box-shadow: 0 0 30px rgba(242,204,143,0.4); }
+  50%       { box-shadow: 0 0 80px rgba(242,204,143,0.9), 0 0 120px rgba(242,204,143,0.3); }
+}
+.animate-victory { animation: victoryFlash 1.2s ease-in-out infinite; }
+
+/* ─────────────────────────────────────────────────────────────
+   Focus Battle — RPG Boss Fight Animations
+   ───────────────────────────────────────────────────────────── */
+
+/* Monster shake on hit */
+@keyframes monsterHit {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  10% { transform: translateX(-8px) rotate(-3deg); }
+  25% { transform: translateX(8px) rotate(3deg); }
+  40% { transform: translateX(-6px) rotate(-2deg); }
+  55% { transform: translateX(6px) rotate(2deg); }
+  70% { transform: translateX(-3px) rotate(-1deg); }
+  85% { transform: translateX(3px) rotate(1deg); }
+}
+.animate-monster-hit { animation: monsterHit 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards; }
+
+/* Damage number pop-up and float away */
+@keyframes damageFloat {
+  0%   { opacity: 1; transform: translateY(0) scale(1.2); }
+  60%  { opacity: 1; transform: translateY(-24px) scale(1); }
+  100% { opacity: 0; transform: translateY(-48px) scale(0.8); }
+}
+.animate-damage-float { animation: damageFloat 1.1s ease-out forwards; }
+
+/* Hero dash attack */
+@keyframes heroDash {
+  0%   { transform: translateX(0) scale(1); }
+  20%  { transform: translateX(calc(50vw - 50%)) scale(1.2); }
+  50%  { transform: translateX(calc(50vw - 50%)) scale(1.15); }
+  70%  { transform: translateX(0) scale(1.1); }
+  100% { transform: translateX(0) scale(1); }
+}
+.animate-hero-dash { animation: heroDash 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+
+/* Hit flash on screen */
+@keyframes hitFlash {
+  0%   { background: rgba(255, 80, 80, 0.35); }
+  100% { background: transparent; }
+}
+.animate-hit-flash { animation: hitFlash 0.35s ease-out; }
+
+/* Monster defeated explosion — 20 particles burst outward */
+@keyframes monsterExplode {
+  0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0;   transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(0.1); }
+}
+.animate-monster-explode { animation: monsterExplode 1.1s cubic-bezier(0.12, 0.9, 0.42, 1) forwards; }
+
+/* Victory golden glow pulse */
+@keyframes victoryGlow {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(242,204,143,0.35), 0 0 60px rgba(242,204,143,0.2), inset 0 0 40px rgba(242,204,143,0.1);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(242,204,143,0.65), 0 0 120px rgba(242,204,143,0.35), inset 0 0 60px rgba(242,204,143,0.2);
+    transform: scale(1.03);
+  }
+}
+.animate-victory-glow { animation: victoryGlow 1.6s ease-in-out infinite; }
+
+/* Rune timer magical pulse */
+@keyframes runePulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(242,204,143,0.5), 0 0 30px rgba(242,204,143,0.25);
+    border-color: rgba(242,204,143,0.45);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(242,204,143,0.75), 0 0 60px rgba(242,204,143,0.35);
+    border-color: rgba(242,204,143,0.85);
+  }
+}
+.animate-rune-pulse { animation: runePulse 2.2s ease-in-out infinite; }
+
+/* Confetti burst */
+@keyframes confettiFall {
+  0%   { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(120vh) rotate(720deg); opacity: 0; }
+}
+.animate-confetti { animation: confettiFall 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+
+/* Monster spawn entrance */
+@keyframes monsterSpawn {
+  0%   { opacity: 0; transform: scale(0.6) translateY(30px); }
+  60%  { opacity: 1; transform: scale(1.1) translateY(-5px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-monster-spawn { animation: monsterSpawn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+
+/* ── Hide any platform-injected watermarks ── */
+a[href*="bolt.new"],
+[class*="bolt-badge"],
+[id*="bolt-badge"],
+[data-bolt-badge],
+[aria-label*="bolt.new" i] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
